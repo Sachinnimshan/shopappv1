@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.top-header-container{
+    background-color: #131921;
+    height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container{
+    display: flex;
+    margin-left: 1rem;  
+}
+
+.amazon-logo{
+    height: 1.75rem;
+    width: auto;
+    margin-top: 0.5rem;
+}
+
+.signin-cart-container{
+    display: flex;
+    margin-right: 2rem;
+}
+
+.signin-cart{
+    margin: 1rem;
+    font-size: 22px;
+    color: lightgray;
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 2px;
+}
+
+.signin-cart:hover{
+    text-decoration: none;
+    color: white;
+}
+.second-header-container{
+    background-color: #232F3E;
+    height: 2.5rem;
+    align-items: center;
+    display: flex;
+    justify-content: start;
+}
+
+.menu-bar-container{
+    display: flex;
+    justify-content: start;
+    margin-left: 1rem;
+    color: white;
+    padding: 2px 6px;
+}
+.menu-bar{
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+}
+
+.top-nav-data-container{
+    display: flex;
+    margin-left: 1.5rem;
+}
+
+.nav-links{
+    text-decoration: none;
+    padding: 10px;
+    color: white;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+/*****************Sidebar****************************/
+
+
+.nav-menu{
+        display: flex;
+        flex-direction: column;
+        width: 25%;
+        height: 100vh;
+        position: absolute;
+        left: -100%;
+        transition: all 0.3s ease-out;  
+}
+
+.nav-menu.active{
+    left: 0;
+    transition: all 0.5s ease-out;
+    background: #ffffff;
+    z-index: 1;
+    top: 0;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+.nav-item{
+    padding: 15px;
+    list-style-type: none;
+}
+
+.nav-item:hover{
+    background-color: lightgrey;
+    cursor: pointer;
+}
+.side-nav-links{
+    text-decoration: none;
+    font-size: 15px;
+    font-family: 'Roboto';
+    color: #717171;
+}
+

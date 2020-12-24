@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.main-single-product-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.single-product-image-container{
+    margin: 2rem;
+}
+
+.single-product-image-card{
+    border: none;
+}
+
+.single-product-view-image{
+    width: 25rem;
+    height: auto;
+}
+
+.single-product-description-card{
+    width: 28rem;
+    margin: 2rem;
+    height: auto;
+    border: none;
+}
+
+.single-product-view-title{
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.single-product-view-description{
+    font-size: 0.95rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #007600;
+}
+
+.single-product-view-price{
+    font-size: 1.5rem;
+    color: #B12704;
+    font-weight: bold;
+}
+
+.single-product-view-availability{
+    font-size: 1.2rem;
+    color: #0081B0;
+    font-family: 'Roboto';
+}
+
+
+
+.single-product-addtocart-card{
+    width: auto;
+    margin: 2rem;
+    justify-content: center;
+    text-align: center;
+}
+
+.single-product-view-rating{
+    font-size: 1.2rem;
+    color: #0081B0;
+}
+
+.single-product-view-numreviews{
+    color: #E47911;
+    font-size: 1.2rem;
+}
+
+.single-product-view-instock-status{
+    font-size: 1.2rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.single-product-view-instock{
+    color: #007600;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.single-product-view-outofstock{
+    color: red;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.single-product-view-addtocart-btn{
+    width: 15rem;
+    height: 2.5rem;
+    border: none;
+    background-color: #f0c040;
+    border: 1px solid #A88734;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: 'Roboto';
+}
