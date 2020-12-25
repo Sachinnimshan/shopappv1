@@ -1,7 +1,7 @@
 import React from 'react';
 import Data from '../Data';
 import 'bootstrap/dist/css/bootstrap.css';
-import {Button,Card,ListGroup,ListGroupItem,Badge} from 'react-bootstrap';
+import {Button,Card,ListGroup,ListGroupItem, Badge} from 'react-bootstrap';
 import './ProductScreen.css';
 import formatCurrency from '../Currency';
 
@@ -42,8 +42,8 @@ function ProductScreen(props) {
                                 </span>
                             {product.AvailableSize.map((x)=>(
                                        <span>{" "}
-                                       <Button variant='info'
-                                       className='single-product-view-availability-btn'>{x}</Button>
+                                       <Badge variant='info'
+                                       className='single-product-view-availability-badge'>{x}</Badge>
                                        </span>
                                      ))}
                                 </ListGroupItem>

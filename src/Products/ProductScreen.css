@@ -49,6 +49,12 @@
     font-family: 'Roboto';
 }
 
+.single-product-view-availability-badge{
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.2rem;
+    font-family: 'Roboto';
+}
 
 
 .single-product-addtocart-card{
