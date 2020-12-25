@@ -71,6 +71,11 @@
     font-family: 'Roboto', sans-serif;
 }
 
+.nav-links:hover{
+    text-decoration: none;
+    color: lightgray;
+}
+
 
 /*****************Sidebar****************************/
 
@@ -80,7 +85,7 @@
         flex-direction: column;
         width: 25%;
         height: 100vh;
-        position: absolute;
+        position: fixed;
         left: -100%;
         transition: all 0.3s ease-out;  
 }
@@ -105,9 +110,12 @@
     cursor: pointer;
 }
 .side-nav-links{
-    text-decoration: none;
     font-size: 15px;
     font-family: 'Roboto';
     color: #717171;
+}
+
+.side-nav-links:hover{
+    text-decoration: none;
 }
 

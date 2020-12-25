@@ -10,15 +10,12 @@ export default function Products (props){
 
         return (
             <div className='main-products-container'>
-                
-                    <Card className='single-product-card' key={product._id}>
+                <Card className='single-product-card' key={product._id}>
                         <Card.Img src={product.Image} className='single-product-image'/>
                         <Card.Body>
                             <Card.Title >
                                 <span className='single-product-title'>
                                     <Link to={`/product/${product._id}`}>{product.Title}</Link></span></Card.Title>
-                            <Card.Text className='single-product-description'>
-                                {product.Description}</Card.Text>
                             <ListGroup>
                                 <ListGroupItem ><span className='single-product-price'>
                                     {formatCurrency(product.Price)}</span></ListGroupItem>

@@ -1,4 +1,4 @@
-import React from 'react';
+/* import React from 'react';
 import Data from './Data';
 import 'bootstrap/dist/css/bootstrap.css';
 import {Button,Card,ListGroup,ListGroupItem,Badge} from 'react-bootstrap';
@@ -89,3 +89,4 @@ function ProductScreen(props) {
 }
 
 export default ProductScreen;
+ */

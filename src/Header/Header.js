@@ -10,6 +10,7 @@ function Header() {
 
     const [Sidebar, SetSidebar] = useState(false);
     const ShowSidebar =()=> SetSidebar(!Sidebar);
+    const CloseSidebar =()=> SetSidebar(false);
 
     return (
         <div>
@@ -35,7 +36,7 @@ function Header() {
                     <ul className={Sidebar ? 'nav-menu active': 'nav-menu'}>
                         {SidebarData.map((sidedata, index)=>{
                             return(
-                        <li key={index} className='nav-item'>
+                        <li key={index} className='nav-item' onClick={CloseSidebar}>
                             <Link to={sidedata.Path} className={sidedata.CName}>
                                 {sidedata.Title}</Link>
                              </li>
