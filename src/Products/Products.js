@@ -1,15 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import {Link} from 'react-router-dom';
 import {Card, ListGroup, ListGroupItem} from 'react-bootstrap';
 import './Products.css';
 import formatCurrency from '../Currency';
 
-export class Products extends Component {
-    render() {
+export default function Products (props){
+    const { product } = props;
+
         return (
             <div className='main-products-container'>
-                {this.props.products.map(product=>(
+                
                     <Card className='single-product-card' key={product._id}>
                         <Card.Img src={product.Image} className='single-product-image'/>
                         <Card.Body>
@@ -30,11 +31,7 @@ export class Products extends Component {
                         </Card.Body>
 
                     </Card>
-                ))}
-                
-            </div>
+                </div>
         )
-    }
+    
 }
-
-export default Products;

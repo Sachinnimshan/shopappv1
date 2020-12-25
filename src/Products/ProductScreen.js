@@ -1,5 +1,5 @@
 import React from 'react';
-import {Data} from './Data';
+import Data from './Data';
 import 'bootstrap/dist/css/bootstrap.css';
 import {Button,Card,ListGroup,ListGroupItem,Badge} from 'react-bootstrap';
 import './ProductScreen.css';
@@ -14,7 +14,7 @@ function ProductScreen(props) {
     return (
         <div className='main-single-product-container'>
             <div className='single-product-image-container'>
-            <Card className='single-product-image-card'>
+            <Card className='single-product-image-card' key={product._id}>
                 <Card.Img src={product.Image} className='single-product-view-image'/>
             </Card>
             </div>

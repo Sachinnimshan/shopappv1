@@ -1,4 +1,4 @@
-export const Data = 
+const Data = 
 {
     ProductData: [
         {
@@ -148,3 +148,5 @@ export const Data =
     ]
     
 }
+
+export default Data;

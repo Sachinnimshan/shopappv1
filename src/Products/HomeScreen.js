@@ -1,22 +1,15 @@
-import React, { Component } from 'react';
-import {Data} from './Data';
+import React from 'react';
 import Products from './Products';
-import './HomeScreen.css';
+import Data from './Data';
 
-export class HomeScreen extends Component {
-    constructor(){
-        super();
-        this.state = {
-            products: Data.ProductData
-        }
-    }
-    render() {
-        return (
-            <div className='home-main-container'>
-                <Products products= {this.state.products}/>  
-            </div>
-        )
-    }
+function HomeScreen() {
+    return (
+        <div className='main-products-container'>
+           {Data.ProductData.map((product)=>(
+                <Products key={product._id} product={product}/>
+           ))}
+        </div>
+    )
 }
 
 export default HomeScreen;
