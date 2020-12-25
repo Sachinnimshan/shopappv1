@@ -28,7 +28,7 @@ function HomeScreen() {
     return (
         <div>
             { loading ? (<LoadingBox></LoadingBox>)
-           : error ? (<MessageBox></MessageBox>)
+           : error ? (<MessageBox>{error}</MessageBox>)
         : (
             <div className='main-products-container'>
             {products.map((product)=>(
