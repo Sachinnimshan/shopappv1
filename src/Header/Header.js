@@ -5,6 +5,7 @@ import {VscThreeBars} from 'react-icons/vsc';
 import {AiOutlineCloseCircle} from 'react-icons/ai';
 import {TopNavData} from './TopNavData';
 import {SidebarData} from './SidebarData';
+import {AiOutlineSearch} from 'react-icons/ai';
 
 function Header() {
 
@@ -17,6 +18,13 @@ function Header() {
             <div className='top-header-container'>
             <div className='logo-container'>
                 <Link to='/'><img className='amazon-logo' src='/Images/amzlogo.png'/></Link>
+            </div>
+
+            <div className='search-bar-container'>
+                <input className='main-search-bar'/>
+                <button className='main-search-btn'>
+                    <AiOutlineSearch className='main-search-btn-icon'/>
+                    </button>
             </div>
 
             <div className='signin-cart-container'>
