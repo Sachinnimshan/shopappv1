@@ -3,6 +3,7 @@ import Header from './Header/Header';
 import HomeScreen from './Products/HomeScreen';
 import ProductScreen from './Products/ProductScreen';
 import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
+import Footer from './Footer/Footer';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
          <Route exact path='/' component={HomeScreen}/>
          <Route path="/product/:id" component={ProductScreen}/>
        </Switch>
+       <Footer/>
      </Router>
     </div>
   );

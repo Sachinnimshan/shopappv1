@@ -1,0 +1,37 @@
+.main-footer-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.top-footer-container{
+    background-color: #37475A;
+    height: 3rem;
+    width: 100%;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.top-footer-container > span{
+    color: #fff;
+    cursor: pointer;
+}
+
+
+.middle-footer-container{
+    background-color: #232F3E;
+    height: 520px;
+    display: flex;
+    width: 100%;
+}
+
+.bottom-footer-container{
+    background-color: #131A22;
+    height: 520px;
+    display: flex;
+    width: 100%;
+}
+
+
