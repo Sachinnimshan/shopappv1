@@ -1,9 +1,10 @@
 import React from 'react';
+import {Spinner} from 'react-bootstrap';
 
 function LoadingBox(props) {
     return (
-        <div>
-            
+        <div className='loading-container'>
+            <Spinner animation="border" variant="primary" />
         </div>
     )
 }
