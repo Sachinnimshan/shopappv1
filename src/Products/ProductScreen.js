@@ -1,18 +1,31 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Data from '../Data';
 import 'bootstrap/dist/css/bootstrap.css';
 import {Button,Card,ListGroup,ListGroupItem, Badge} from 'react-bootstrap';
 import './ProductScreen.css';
 import formatCurrency from '../Currency';
+import { useDispatch , useSelector } from 'react-redux';
+import { DetailsProduct } from '../Actions/ProductActions';
+import LoadingBox from '../Components/LoadingBox';
+import MessageBox from '../Components/MessageBox';
 
 function ProductScreen(props) {
-    const product = Data.ProductData.find((x)=> x._id === props.match.params.id);
+    
+    const dispatch = useDispatch();
+    const ProductID = props.match.params.id;
+    const ProductDetails = useSelector((state)=> state.ProductDetails);
+    const {loading, error, product} = ProductDetails;
 
-    if(!product){
-        <div>Product Not Found</div>
-    }
+    useEffect(()=>{
+        dispatch(DetailsProduct(ProductID));
+    } , [dispatch, ProductID]);
+
     return (
-        <div className='main-single-product-container'>
+        <div>
+            { loading ? (<LoadingBox></LoadingBox>)
+            : error ? (<MessageBox>{error}</MessageBox>)
+         : (
+            <div className='main-single-product-container'>
             <div className='single-product-image-container'>
             <Card className='single-product-image-card' key={product._id}>
                 <Card.Img src={product.Image} className='single-product-view-image'/>
@@ -84,7 +97,9 @@ function ProductScreen(props) {
 
             </div>
             
+        </div>)}
         </div>
+        
     )
 }
 
