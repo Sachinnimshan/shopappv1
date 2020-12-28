@@ -7,6 +7,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .logo-container{
@@ -21,7 +22,7 @@
 }
 
 .main-search-bar{
-    width: 500px;
+    width: 450px;
     height: 2.5rem;
     border: none;
     border-radius: 5px 0 0 5px;
@@ -59,6 +60,29 @@
 .signin-cart:hover{
     text-decoration: none;
     color: white;
+}
+
+@media screen and (max-width: 960px){
+    .top-header-container{
+        height: 8rem;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .search-bar-container{
+        margin-right: 1.5rem;
+        margin-left: 2rem;
+        width: auto;
+    }
+
+    .main-search-bar{
+        width: auto;
+    }
+
+    .signin-cart-container{       
+        display: flex;
+
+    }
 }
 .second-header-container{
     background-color: #232F3E;

@@ -9,7 +9,7 @@ function Footer() {
       };
 
     return (
-        <div className='main-footer-container'>
+        <div>
             <div className='top-footer-container' onClick={scrollTop}>
                 <span>Back To Top</span> 
             </div>
@@ -52,7 +52,18 @@ function Footer() {
                      <li><input placeholder='Your Email' className='newsletter-field'/>
                      <button className='newsletter-btn'>Subscribe</button></li>
                  </ul>
-                </div>
+                </div>               
+            </div>
+
+            <div className='footer-end-container'>
+                    <div className='website-copyright-container'>
+                    <span className='copyright-container'>
+                    © <a href=''>Amazon Store</a> (2020) — Solution by <a href=''>Sachin Nimshan</a>
+                    </span>
+                    </div>
+                    <div className='payment-methods-container'>
+                    <img src='/Images/payments.png'/>
+                    </div>
             </div>
             
         </div>
