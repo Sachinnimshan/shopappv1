@@ -13,17 +13,27 @@ export default function Products (props){
                 <Card className='single-product-card' key={product._id}>
                         <Card.Img src={product.Image} className='single-product-image'/>
                         <Card.Body>
+
                             <Card.Title >
                                 <span className='single-product-title'>
                                     <Link to={`/product/${product._id}`}>{product.Title}</Link></span></Card.Title>
                             <ListGroup>
-                                <ListGroupItem ><span className='single-product-price'>
+
+                            <ListGroupItem ><span className='single-product-price'>
                                     {formatCurrency(product.Price)}</span></ListGroupItem>
-                                <ListGroupItem className='single-product-availablesize'>
+
+                            <ListGroupItem className='single-product-availablesize'>
+                                    {(product.CountInStock > 0) ? (<span className='product-view-instock'>
+                            In Stock</span>) : (<span className='product-view-outofstock'>
+                            Out of Stock</span>)}</ListGroupItem>   
+                                
+                            <ListGroupItem className='single-product-availablesize'>
                                     {product.AvailableSize}</ListGroupItem>
-                                <ListGroupItem>
+
+                            <ListGroupItem>
                                     <button className='single-addtocart-btn'>
                                         Add to Cart</button></ListGroupItem>
+
                             </ListGroup>
                         </Card.Body>
 

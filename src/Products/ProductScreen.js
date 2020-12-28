@@ -89,9 +89,10 @@ function ProductScreen(props) {
                             Out of Stock</span>)}
                         
                         </ListGroupItem>
-                    <ListGroupItem>
-                        <button className='single-product-view-addtocart-btn'>Add To Cart</button>
-                        </ListGroupItem>
+                        {(product.CountInStock > 0) &&
+                        (<ListGroupItem>
+                            <button className='single-product-view-addtocart-btn'>Add To Cart</button>
+                            </ListGroupItem>)}
                 </ListGroup>
                 </Card>
 

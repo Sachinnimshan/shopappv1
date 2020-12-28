@@ -11,7 +11,7 @@ const Data =
             AvailableSize: ['S','M','L'],
             Rating: 4.5,
             NumReviews: 20,
-            CountInStock: 1
+            CountInStock: 0
         },
         {
             _id: 'q2',
