@@ -33,6 +33,7 @@
 .bottom-footer-column{
     margin-top: 3.5rem;
     margin: 1.9rem;
+    width: auto;
 }
 
 .bottom-footer-column > ul > li{
@@ -62,20 +63,21 @@
 
 .newsletter-field {
     height: 2.5rem;
-    width: 250px;
+    width: 225px;
+    margin-right: 0.2rem;
     padding: 10px;
     border: none;
-    margin-right: 5px;
+    border: 1px solid white;
     border-radius: 5px 0 0 5px;
 }
 
 .newsletter-btn{
     height: 2.5rem;
-    width: 120px;
+    width: 100px;
     border: none;
+    font-size: 1.1rem;
     background-color: #47991F;
     color: white;
-    font-size: 1.2rem;
     font-family: 'Roboto';
     border-radius: 0 5px 5px 0;
 }
@@ -89,6 +91,3 @@
     margin: 0.5rem;
 }
 
-@media screen and (max-width: 560px){
-    
-}
