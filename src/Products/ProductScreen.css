@@ -20,7 +20,7 @@
 }
 
 .single-product-description-card{
-    width: 28rem;
+    width: 25rem;
     margin: 2rem;
     height: auto;
     border: none;
@@ -88,6 +88,10 @@
     color: red;
     font-size: 1.2rem;
     font-weight: bold;
+}
+
+.single-product-view-addtocart-container{
+    margin-top: 2rem;
 }
 
 .single-product-view-addtocart-btn{

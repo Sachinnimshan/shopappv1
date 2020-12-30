@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react';
-import Data from '../Data';
 import 'bootstrap/dist/css/bootstrap.css';
-import {Button,Card,ListGroup,ListGroupItem, Badge} from 'react-bootstrap';
+import {Card,ListGroup,ListGroupItem, Badge} from 'react-bootstrap';
 import './ProductScreen.css';
 import formatCurrency from '../Currency';
 import { useDispatch , useSelector } from 'react-redux';
@@ -86,15 +85,31 @@ function ProductScreen(props) {
                     <ListGroupItem><span className='single-product-view-instock-status'>Status : {" "}</span>
                         {(product.CountInStock > 0) ? (<span className='single-product-view-instock'>
                             In Stock</span>) : (<span className='single-product-view-outofstock'>
-                            Out of Stock</span>)}
-                        
-                        </ListGroupItem>
-                        {(product.CountInStock > 0) &&
-                        (<ListGroupItem>
-                            <button className='single-product-view-addtocart-btn'>Add To Cart</button>
-                            </ListGroupItem>)}
-                </ListGroup>
+                            Out of Stock</span>)}</ListGroupItem>
+                            </ListGroup>
                 </Card>
+
+                        {(product.CountInStock > 0) &&
+                        (<div className='single-product-view-addtocart-container'>
+                            <ListGroup>
+                                <ListGroupItem>
+                                    <span>Quantity : {" "}</span>
+                                    <span>
+                    <select value={qty} onChange={(e)=> setqty(e.target.value)}>
+                        {[...Array(product.CountInStock).keys()].map((x)=>(</option>))}
+
+                                        </select>
+                                    </span>
+                                </ListGroupItem>
+                            <ListGroupItem>
+                            <button className='single-product-view-addtocart-btn'>
+                            Add To Cart
+                            </button>
+                            </ListGroupItem>           
+                            </ListGroup>  
+                        </div>)
+                        }
+                
 
             </div>
             

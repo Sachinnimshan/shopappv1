@@ -23,12 +23,14 @@ export default function Products (props){
                                     {formatCurrency(product.Price)}</span></ListGroupItem>
 
                             <ListGroupItem className='single-product-availablesize'>
+                                    {product.AvailableSize}</ListGroupItem>        
+  
+                            <ListGroupItem className='single-product-availablesize'>
                                     {(product.CountInStock > 0) ? (<span className='product-view-instock'>
                             In Stock</span>) : (<span className='product-view-outofstock'>
                             Out of Stock</span>)}</ListGroupItem>   
                                 
-                            <ListGroupItem className='single-product-availablesize'>
-                                    {product.AvailableSize}</ListGroupItem>
+                            
 
                             <ListGroupItem>
                                     <button className='single-addtocart-btn'>
