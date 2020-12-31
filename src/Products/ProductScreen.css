@@ -92,6 +92,20 @@
 
 .single-product-view-addtocart-container{
     margin-top: 2rem;
+    
+}
+
+.single-product-view-quantity-status{
+    font-size: 1.2rem;
+    font-family: 'Roboto';
+}
+
+.single-product-view-quantity{
+    width: 5rem;
+    height: 2rem;
+    border: 1px solid black;
+    cursor: pointer;
+    padding: 5px;
 }
 
 .single-product-view-addtocart-btn{

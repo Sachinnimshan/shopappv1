@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import {Card,ListGroup,ListGroupItem, Badge} from 'react-bootstrap';
 import './ProductScreen.css';
@@ -11,6 +11,7 @@ import MessageBox from '../Components/MessageBox';
 function ProductScreen(props) {
     
     const dispatch = useDispatch();
+    const [qty, setqty]= useState(1);
     const ProductID = props.match.params.id;
     const ProductDetails = useSelector((state)=> state.ProductDetails);
     const {loading, error, product} = ProductDetails;
@@ -18,6 +19,12 @@ function ProductScreen(props) {
     useEffect(()=>{
         dispatch(DetailsProduct(ProductID));
     } , [dispatch, ProductID]);
+
+
+    const AddToCartHandler=()=>{
+        props.history.push(`/cart/${ProductID}?qty=${qty}`);
+
+    }
 
     return (
         <div>
@@ -77,7 +84,7 @@ function ProductScreen(props) {
             <div className='single-product-addtocart-container'>
                 <Card className='single-product-addtocart-card'>              
                 <ListGroup>
-                <ListGroupItem>
+                    <ListGroupItem>
                         <span className='single-product-view-price'>Price : {" "}
                             {formatCurrency(product.Price)}</span>
                         </ListGroupItem>
@@ -85,34 +92,31 @@ function ProductScreen(props) {
                     <ListGroupItem><span className='single-product-view-instock-status'>Status : {" "}</span>
                         {(product.CountInStock > 0) ? (<span className='single-product-view-instock'>
                             In Stock</span>) : (<span className='single-product-view-outofstock'>
-                            Out of Stock</span>)}</ListGroupItem>
-                            </ListGroup>
+                            Out of Stock</span>)}
+                    </ListGroupItem>
+                </ListGroup>
                 </Card>
 
                         {(product.CountInStock > 0) &&
                         (<div className='single-product-view-addtocart-container'>
-                            <ListGroup>
-                                <ListGroupItem>
-                                    <span>Quantity : {" "}</span>
-                                    <span>
-                    <select value={qty} onChange={(e)=> setqty(e.target.value)}>
-                        {[...Array(product.CountInStock).keys()].map((x)=>(</option>))}
-
-                                        </select>
-                                    </span>
-                                </ListGroupItem>
+                        <ListGroup>
                             <ListGroupItem>
-                            <button className='single-product-view-addtocart-btn'>
+                            <span className='single-product-view-quantity-status'>Quantity : {" "}</span>
+                             <span><select className='single-product-view-quantity'
+                            value={qty} onChange={(e)=> setqty(e.target.value)}>
+                            {[...Array(product.CountInStock).keys()].map(
+                            (x)=>(<option key={x+1} value={x+1}>{x+1}</option>))}
+                            </select></span>
+                            </ListGroupItem>
+                        <ListGroupItem>
+                            <button className='single-product-view-addtocart-btn'
+                            onClick={AddToCartHandler}>
                             Add To Cart
                             </button>
                             </ListGroupItem>           
                             </ListGroup>  
-                        </div>)
-                        }
-                
-
-            </div>
-            
+                        </div>)}
+             </div>
         </div>)}
         </div>
         
