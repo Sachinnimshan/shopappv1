@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {Badge} from 'react-bootstrap';
 import './Header.css';
 import {Link} from 'react-router-dom';
 import {VscThreeBars} from 'react-icons/vsc';
@@ -6,12 +7,16 @@ import {AiOutlineCloseCircle} from 'react-icons/ai';
 import {TopNavData} from './TopNavData';
 import {SidebarData} from './SidebarData';
 import {AiOutlineSearch} from 'react-icons/ai';
+import {useSelector} from 'react-redux';
 
 function Header() {
 
     const [Sidebar, SetSidebar] = useState(false);
     const ShowSidebar =()=> SetSidebar(!Sidebar);
     const CloseSidebar =()=> SetSidebar(false);
+
+    const Cart = useSelector(state=> state.Cart);
+    const {CartItems}= Cart;
 
     return (
         <div>
@@ -31,7 +36,10 @@ function Header() {
                 <Link to='/signin'>
                     <span className='signin-cart'>Sign in</span></Link>
                 <Link to='/cart'>
-                    <span className='signin-cart'>Cart</span></Link>
+                    <span className='signin-cart'>Cart {" "}
+                    {CartItems.length > 0 && 
+                    (<Badge variant='danger'>{CartItems.length}</Badge>)}
+                    </span></Link>
             </div>
 
             </div>

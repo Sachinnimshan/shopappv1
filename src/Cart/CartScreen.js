@@ -15,9 +15,16 @@ function CartScreen(props) {
     }, [dispatch, ProductID, qty]);
 
     return (
-        <div>
-            <h1>Shopping Cart</h1>
-            <p>Add To Cart : Product ID : {ProductID} : Quantity : {qty}</p>
+        <div className='main-cart-container'>
+            <div className='cart-items-container'>
+                <h1>Sachin Nimshan</h1>
+
+            </div>
+
+            <div className='cart-total-container'>
+
+            </div>
+            
         </div>
     )
 }
