@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import { AddToCart } from '../Actions/CartActions';
+import { AddToCart, RemoveFromCart} from '../Actions/CartActions';
 import {Button,Card, ListGroup, Badge, ListGroupItem} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import formatCurrency from '../Currency';
@@ -19,7 +19,12 @@ function CartScreen(props) {
     }, [dispatch, ProductID, qty]);
 
     const RemoveFromCartHandler =(id)=>{
+        dispatch(RemoveFromCart(id));
 
+    }
+
+    const CheckOutHandler=()=>{
+        props.history.push('/signin?redirect=shipping')
     }
 
     const Cart = useSelector(state=> state.Cart);
@@ -27,18 +32,11 @@ function CartScreen(props) {
 
     return (
         <div className='main-cart-container'>
-            <div className='empty-cart-container'>
-                {(CartItems.length === 0) ? (
-                    <Card className='empty-cart-card-container'>
-                        <div><img src='/Images/cartempty.png'/></div>
-                        <div>
-                            <span>Your Shopping Cart is Empty</span>
-                            <span>
-                                <button>Sign in to your account</button>
-                                <button>Sign up now</button>
-                            </span>
-                        </div>                
-                    </Card>
+            {(CartItems.length === 0) ? (
+                    <div className='empty-cart-container'>
+                        
+                    </div>
+                    
                 ): (
                    <ul>
                         {CartItems.map((item)=>(
@@ -59,8 +57,9 @@ function CartScreen(props) {
                                       <span>Qty : {" "}
                                        <select className='cart-list-product-quantity'
                                         value={item.qty} 
-                                         onChange={(e)=>dispatch(AddToCart(item.product),
-                                          Number(e.target.value))}>
+                                         onChange={(e)=>
+                                            dispatch(AddToCart(item.product, Number(e.target.value))
+                                          )}>
                                           {[...Array(item.CountInStock).keys()].map(
                                         (x)=>(<option key={x+1} value={x+1}>{x+1}</option>))}
 
@@ -71,13 +70,13 @@ function CartScreen(props) {
                                    <span className='cart-list-product-price'>
                                        {formatCurrency(item.Price)}</span>
                                   <button className='cart-list-product-delete'
-                                  onClick={RemoveFromCartHandler(item.product)}>Delete</button>
+                                  onClick={()=>RemoveFromCartHandler(item.product)}>Delete</button>
                             </div>
                         ))}
                     </ul>
                     )
                 }
-            </div>
+            
 
             <div className='cart-total-container'>
                 <Card>
@@ -87,7 +86,9 @@ function CartScreen(props) {
                         {formatCurrency(CartItems.reduce((a,c)=> a + c.Price * c.qty, 0))}
                     </Card.Title>
                     <ListGroup>
-                    <button className='cart-list-proceed-checkout-btn'>Proceed To Checkout</button>
+                    <button className='cart-list-proceed-checkout-btn'
+                    onClick={CheckOutHandler} disabled={CartItems.length ===0}>
+                        Proceed To Checkout</button>
                     </ListGroup>
                     </Card.Body>
                 </Card>

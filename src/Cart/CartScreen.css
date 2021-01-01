@@ -7,9 +7,9 @@
     margin: 1.5rem;
 }
 
-.empty-cart-card-container{
+.empty-cart-container{
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
 }
 
