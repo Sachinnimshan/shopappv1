@@ -82,9 +82,9 @@ function CartScreen(props) {
             <div className='cart-total-container'>
                 <Card>
                     <Card.Body>
-                    <Card.Title>Subtotal
+                    <Card.Title>SubTotal
                         ({CartItems.reduce((a,c)=> a + c.qty, 0)} items) : {" "} 
-                        {formatCurrency(CartItems.reduce((a,c)=> a + c.Price * c.qty ,0))}
+                        {formatCurrency(CartItems.reduce((a,c)=> a + c.Price * c.qty, 0))}
                     </Card.Title>
                     <ListGroup>
                     <button className='cart-list-proceed-checkout-btn'>Proceed To Checkout</button>

@@ -33,11 +33,11 @@ function Header() {
             </div>
 
             <div className='signin-cart-container'>
-                <Link to='/signin'>
+                <Link to='/signin' className='signin-cart-link-container'>
                     <span className='signin-cart'>Sign in</span></Link>
-                <Link to='/cart'>
-                    <span className='signin-cart'>Cart {" "}
-                    {CartItems.length > 0 && 
+                <Link to='/cart' className='signin-cart-link-container'>
+                    <span className='signin-cart'>
+                    Cart {" "}{CartItems.length > 0 && 
                     (<Badge variant='danger'>{CartItems.length}</Badge>)}
                     </span></Link>
             </div>

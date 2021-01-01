@@ -49,6 +49,10 @@
     margin-right: 2rem;
 }
 
+.signin-cart-link-container:hover{
+    text-decoration: none;
+}
+
 .signin-cart{
     margin: 1rem;
     font-size: 22px;
