@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { AddToCart } from '../Actions/CartActions';
-import {Button,Card, ListGroup, Badge} from 'react-bootstrap';
+import {Button,Card, ListGroup, Badge, ListGroupItem} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import formatCurrency from '../Currency';
 import './CartScreen.css';
@@ -17,6 +17,10 @@ function CartScreen(props) {
             dispatch(AddToCart(ProductID, qty));
         }
     }, [dispatch, ProductID, qty]);
+
+    const RemoveFromCartHandler =(id)=>{
+
+    }
 
     const Cart = useSelector(state=> state.Cart);
     const{CartItems}= Cart;
@@ -36,31 +40,38 @@ function CartScreen(props) {
                         </div>                
                     </Card>
                 ): (
-                   
-                    <ul>
+                   <ul>
                         {CartItems.map((item)=>(
                             <div className='cart-list-container'>
-                                <div>
-                                <Card key={item.product} className='cart-list-product-image-card'>
-                                <Card.Img className='cart-list-product-image' 
-                                src={item.Image}/>
-                                </Card>
-                                </div>
-                                <div>
+                               <Card key={item.product} className='cart-list-product-image-card'>
+                                <Card.Img className='cart-list-product-image' src={item.Image}/>
+                               </Card>
+                                
                                 <ListGroup>
-                                      <ListGroup.Item className='cart-list-product-title'>
+                                    <ListGroup.Item className='cart-list-product-title'>
                                       <Link className='cart-list-product-title-link' 
                                       to={`/product/${item.product}`}>{item.Title}</Link>
                                       </ListGroup.Item>
-                                    {(item.CountInStock > 0) ? 
-                                    (<Badge pill variant='success'>In Stock</Badge>):
-                                     (<Badge pillvariant='danger'>Out Of Stock</Badge>)}
-                                    <button className='cart-list-product-delete'>Delete</button>
+                                       {(item.CountInStock > 0) ? 
+                                       (<Badge pill variant='success'>In Stock</Badge>):
+                                       (<Badge pillvariant='danger'>Out Of Stock</Badge>)}
+
+                                      <span>Qty : {" "}
+                                       <select className='cart-list-product-quantity'
+                                        value={item.qty} 
+                                         onChange={(e)=>dispatch(AddToCart(item.product),
+                                          Number(e.target.value))}>
+                                          {[...Array(item.CountInStock).keys()].map(
+                                        (x)=>(<option key={x+1} value={x+1}>{x+1}</option>))}
+
+                                       </select>
+                                      </span>
                                     </ListGroup>
-                                </div>
-                                <div>
-                                  <span className='cart-list-product-price'>{formatCurrency(item.Price)}</span>
-                                 </div>
+
+                                   <span className='cart-list-product-price'>
+                                       {formatCurrency(item.Price)}</span>
+                                  <button className='cart-list-product-delete'
+                                  onClick={RemoveFromCartHandler(item.product)}>Delete</button>
                             </div>
                         ))}
                     </ul>
@@ -71,7 +82,10 @@ function CartScreen(props) {
             <div className='cart-total-container'>
                 <Card>
                     <Card.Body>
-                    <Card.Title>Subtotal</Card.Title>
+                    <Card.Title>Subtotal
+                        ({CartItems.reduce((a,c)=> a + c.qty, 0)} items) : {" "} 
+                        {formatCurrency(CartItems.reduce((a,c)=> a + c.Price * c.qty ,0))}
+                    </Card.Title>
                     <ListGroup>
                     <button className='cart-list-proceed-checkout-btn'>Proceed To Checkout</button>
                     </ListGroup>
