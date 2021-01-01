@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import {Link} from 'react-router-dom';
-import {Card, ListGroup, ListGroupItem} from 'react-bootstrap';
+import {Card, ListGroup, Badge} from 'react-bootstrap';
 import './Products.css';
 import formatCurrency from '../Currency';
 
@@ -19,22 +19,22 @@ export default function Products (props){
                                     <Link to={`/product/${product._id}`}>{product.Title}</Link></span></Card.Title>
                             <ListGroup>
 
-                            <ListGroupItem ><span className='single-product-price'>
-                                    {formatCurrency(product.Price)}</span></ListGroupItem>
+                            <ListGroup.Item ><span className='single-product-price'>
+                                    {formatCurrency(product.Price)}</span></ListGroup.Item>
 
-                            <ListGroupItem className='single-product-availablesize'>
-                                    {product.AvailableSize}</ListGroupItem>        
+                            <ListGroup.Item className='single-product-availablesize'>
+                                    {product.AvailableSize}</ListGroup.Item>        
   
-                            <ListGroupItem className='single-product-availablesize'>
-                                    {(product.CountInStock > 0) ? (<span className='product-view-instock'>
-                            In Stock</span>) : (<span className='product-view-outofstock'>
-                            Out of Stock</span>)}</ListGroupItem>   
+                            <ListGroup.Item className='single-product-availablesize'>
+                                    {(product.CountInStock > 0) ? (<Badge pill variant='success'>
+                            In Stock</Badge>) : (<Badge pill variant='danger'>
+                            Out of Stock</Badge>)}</ListGroup.Item>   
                                 
                             
 
-                            <ListGroupItem>
+                            <ListGroup.Item>
                                     <button className='single-addtocart-btn'>
-                                        Add to Cart</button></ListGroupItem>
+                                        Add to Cart</button></ListGroup.Item>
 
                             </ListGroup>
                         </Card.Body>

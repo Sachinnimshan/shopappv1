@@ -47,10 +47,16 @@
     color: #C7511F;
 }
 
+
+
 .cart-list-product-delete{
-    height: auto;
+    height: 2rem;
     width: auto;
     border: none;
+    margin-top: 1rem;
+    background-color: #DC3545;
+    color: white;
+    border-radius: 5px;
 }
 
 .cart-list-product-price{

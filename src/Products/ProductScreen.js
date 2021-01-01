@@ -55,7 +55,7 @@ function ProductScreen(props) {
                             </Card.Subtitle>
 
                             <ListGroup>
-                                <ListGroupItem>
+                                <ListGroup.Item>
                                 <span className='single-product-view-availability'>
                                 Available Sizes : {" "}
                                 </span>
@@ -65,16 +65,16 @@ function ProductScreen(props) {
                                        className='single-product-view-availability-badge'>{x}</Badge>
                                        </span>
                                      ))}
-                                </ListGroupItem>
+                                </ListGroup.Item>
 
-                                <ListGroupItem>
+                                <ListGroup.Item>
                                  <span className='single-product-view-rating'>
                             Rating : {" "}{product.Rating}</span>
-                                </ListGroupItem>
-                                <ListGroupItem>
+                                </ListGroup.Item>
+                                <ListGroup.Item>
                                  <span className='single-product-view-numreviews'>
                                  Reviews : {" "}{product.NumReviews}</span>
-                                </ListGroupItem>
+                                </ListGroup.Item>
 
                             </ListGroup>
                     </Card.Body>
@@ -84,16 +84,15 @@ function ProductScreen(props) {
             <div className='single-product-addtocart-container'>
                 <Card className='single-product-addtocart-card'>              
                 <ListGroup>
-                    <ListGroupItem>
+                    <ListGroup.Item>
                         <span className='single-product-view-price'>Price : {" "}
                             {formatCurrency(product.Price)}</span>
-                        </ListGroupItem>
+                        </ListGroup.Item>
                     
-                    <ListGroupItem><span className='single-product-view-instock-status'>Status : {" "}</span>
-                        {(product.CountInStock > 0) ? (<span className='single-product-view-instock'>
-                            In Stock</span>) : (<span className='single-product-view-outofstock'>
-                            Out of Stock</span>)}
-                    </ListGroupItem>
+                    <ListGroup.Item><span className='single-product-view-instock-status'>Status : {" "}</span>
+                        {(product.CountInStock > 0) ? (<Badge pill variant='success'>
+                            In Stock</Badge>) : (<Badge pill variant='danger'>Out of Stock</Badge>)}
+                    </ListGroup.Item>
                 </ListGroup>
                 </Card>
 

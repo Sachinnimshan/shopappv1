@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { AddToCart } from '../Actions/CartActions';
-import {Button,Card, ListGroup, ListGroupItem} from 'react-bootstrap';
+import {Button,Card, ListGroup, Badge} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import formatCurrency from '../Currency';
 import './CartScreen.css';
@@ -52,7 +52,10 @@ function CartScreen(props) {
                                       <Link className='cart-list-product-title-link' 
                                       to={`/product/${item.product}`}>{item.Title}</Link>
                                       </ListGroup.Item>
-                                    <Button variant='danger'>Delete</Button>
+                                    {(item.CountInStock > 0) ? 
+                                    (<Badge pill variant='success'>In Stock</Badge>):
+                                     (<Badge pillvariant='danger'>Out Of Stock</Badge>)}
+                                    <button className='cart-list-product-delete'>Delete</button>
                                     </ListGroup>
                                 </div>
                                 <div>
