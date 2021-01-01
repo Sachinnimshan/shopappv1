@@ -1,8 +1,9 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { AddToCart } from '../Actions/CartActions';
-import {Card} from 'react-bootstrap';
+import {Button,Card, ListGroup, ListGroupItem} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
+import formatCurrency from '../Currency';
 import './CartScreen.css';
 
 function CartScreen(props) {
@@ -22,7 +23,7 @@ function CartScreen(props) {
 
     return (
         <div className='main-cart-container'>
-            <div className='cart-items-container'>
+            <div className='empty-cart-container'>
                 {(CartItems.length === 0) ? (
                     <Card className='empty-cart-card-container'>
                         <div><img src='/Images/cartempty.png'/></div>
@@ -35,33 +36,45 @@ function CartScreen(props) {
                         </div>                
                     </Card>
                 ): (
+                   
                     <ul>
                         {CartItems.map((item)=>(
-                            <Card key={item.product} className='cart-list-container'>
-                                <div><Card.Img className='cart-list-product-image' 
-                                src={item.Image}/></div>
-                                <Card.Body>
-                                <div><Card.Title>
-                                <Link to={`/product/${item.product}`}>{item.Title}</Link>
-                                </Card.Title></div>
-                                </Card.Body>
-                            </Card>
+                            <div className='cart-list-container'>
+                                <div>
+                                <Card key={item.product} className='cart-list-product-image-card'>
+                                <Card.Img className='cart-list-product-image' 
+                                src={item.Image}/>
+                                </Card>
+                                </div>
+                                <div>
+                                <ListGroup>
+                                      <ListGroup.Item className='cart-list-product-title'>
+                                      <Link className='cart-list-product-title-link' 
+                                      to={`/product/${item.product}`}>{item.Title}</Link>
+                                      </ListGroup.Item>
+                                    <Button variant='danger'>Delete</Button>
+                                    </ListGroup>
+                                </div>
+                                <div>
+                                  <span className='cart-list-product-price'>{formatCurrency(item.Price)}</span>
+                                 </div>
+                            </div>
                         ))}
                     </ul>
-                    
-                )
-            }
-                
-
+                    )
+                }
             </div>
 
             <div className='cart-total-container'>
                 <Card>
-
+                    <Card.Body>
+                    <Card.Title>Subtotal</Card.Title>
+                    <ListGroup>
+                    <button className='cart-list-proceed-checkout-btn'>Proceed To Checkout</button>
+                    </ListGroup>
+                    </Card.Body>
                 </Card>
-
             </div>
-            
         </div>
     )
 }

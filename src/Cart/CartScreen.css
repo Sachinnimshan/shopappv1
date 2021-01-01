@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
 
 .main-cart-container{
     display: flex;
@@ -14,5 +15,62 @@
 
 .cart-list-container{
     display: flex;
-    flex-direction: row;
+    width: 750px;
+    justify-content: space-between;
+    border-bottom: 0.5px solid lightgray;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+}
+
+.cart-list-product-image-card{
+    border: none;
+}
+
+.cart-list-product-image{
+    height: 10rem;
+    width: 10rem;
+    padding: 5px;
+}
+
+.cart-list-product-title{
+    border: none;
+    font-size: 1.5rem;
+    font-family: 'Staatliches', cursive;
+    letter-spacing: 2px;
+}
+
+.cart-list-product-title-link{
+    color: #007185;
+}
+
+.cart-list-product-title-link:hover{
+    color: #C7511F;
+}
+
+.cart-list-product-delete{
+    height: auto;
+    width: auto;
+    border: none;
+}
+
+.cart-list-product-price{
+    font-size: 1.2rem;
+    color: #0F1111;
+    border: none;
+    font-weight: bold;
+    font-family: 'Roboto';
+}
+
+.cart-total-container{
+    width: 20%;
+}
+
+.cart-list-proceed-checkout-btn{
+    height: 2.5rem;
+    border: none;
+    background-color: #F1C75F;
+    border: 1px solid #A88734;
+    border-radius: 5px;
+    font-family: 'Roboto';
+    font-size: 15px;
 }
