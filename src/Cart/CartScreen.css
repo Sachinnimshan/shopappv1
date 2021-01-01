@@ -1,4 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 .main-cart-container{
     display: flex;
     justify-content: space-between;
+    margin: 1.5rem;
+}
+
+.empty-cart-card-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-list-container{
+    display: flex;
+    flex-direction: row;
 }
