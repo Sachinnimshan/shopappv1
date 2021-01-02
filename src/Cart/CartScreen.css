@@ -9,8 +9,27 @@
 
 .empty-cart-container{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
+}
+
+.empty-cart-status{
+    font-size: 1.2rem;
+    font-family: "Roboto";
+    font-weight: bold;
+}
+.empty-cart-btn-container{
+    display: flex;
+    margin: 1.5rem;
+}
+
+.empty-cart-btn-container > button{
+    border-radius: 2px;
+    padding: 5px 15px;
+    border: none;
+    margin: 0.5rem;
+    background-color: #F5F6F9;
+    border: 1px solid #ADB1B8;
 }
 
 .cart-list-container{

@@ -34,6 +34,16 @@ function CartScreen(props) {
         <div className='main-cart-container'>
             {(CartItems.length === 0) ? (
                     <div className='empty-cart-container'>
+                        <div>
+                            <img src='/Images/cartempty.png' />
+                        </div>
+                        <div>
+                            <span className='empty-cart-status'>Your Cart is Empty</span>
+                            <div className='empty-cart-btn-container'>
+                                <button>Sign in to your account</button>
+                                <button>Sign up now</button>
+                            </div>
+                        </div>
                         
                     </div>
                     
