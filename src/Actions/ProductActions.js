@@ -3,9 +3,7 @@ import { PRODUCT_DETAILS_FAIL, PRODUCT_DETAILS_REQUEST, PRODUCT_DETAILS_SUCCESS,
  
 
 export const ListProducts =()=> async(dispatch)=>{
-    dispatch({
-        type: PRODUCT_LIST_REQUEST
-    });
+    dispatch({type: PRODUCT_LIST_REQUEST});
     try{
     const {data} = await Axios.get('/api/products');
     dispatch({type: PRODUCT_LIST_SUCCESS, payload: data});

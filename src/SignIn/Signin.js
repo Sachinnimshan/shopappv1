@@ -2,15 +2,19 @@ import React, {useState} from 'react';
 import './Signin.css';
 import {Button, Form} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
+import {useDispatch} from 'react-redux';
+import { SignIn } from '../Actions/UserActions';
 
 
 function Signin() {
 
-    const [email, setemail]= useState('');
-    const [password, setpassword] = useState('');
+    const dispatch = useDispatch();
+    const [Email, setemail]= useState('');
+    const [Password, setpassword] = useState('');
 
     const OnSubmitHandler=(e)=>{
         e.preventDefault();
+        dispatch(SignIn(Email,Password));
     }
 
     return (
@@ -35,7 +39,7 @@ function Signin() {
                     <Form.Control 
                     type="password" 
                     placeholder="Password"
-                    id="Password" onChange={(e)=>setpassword(e.target.password)} />
+                    id="Password" onChange={(e)=>setpassword(e.target.value)} />
                     </Form.Group>
                     <Form.Group controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="Check me out" />

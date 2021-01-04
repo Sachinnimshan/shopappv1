@@ -17,6 +17,8 @@ function Header() {
 
     const Cart = useSelector(state=> state.Cart);
     const {CartItems}= Cart;
+    const UserSign = useSelector(state=> state.UserSign);
+    const {UserInfo}= UserSign;
 
     return (
         <div>
@@ -33,13 +35,19 @@ function Header() {
             </div>
 
             <div className='signin-cart-container'>
-                <Link to='/signin' className='signin-cart-link-container'>
-                    <span className='signin-cart'>Sign in</span></Link>
-                <Link to='/cart' className='signin-cart-link-container'>
+
+               <Link to='/cart' className='signin-cart-link-container'>
                     <span className='signin-cart'>
                     Cart {" "}{CartItems.length > 0 && 
                     (<Badge variant='danger'>{CartItems.length}</Badge>)}
                     </span></Link>
+
+                {UserInfo ? (<Link className='signin-cart-link-container'>
+                <span className='signin-cart'>{UserInfo.Name}</span></Link>) 
+                :
+                (<Link to='/signin' className='signin-cart-link-container'>
+                <span className='signin-cart'>Sign in</span></Link>)}
+
             </div>
 
             </div>
