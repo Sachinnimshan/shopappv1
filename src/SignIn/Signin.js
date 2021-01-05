@@ -69,7 +69,7 @@ function Signin(props) {
 
                     <div className='signin-createnew-container'>
                         <span className='newcustomer-label'>
-                            New Customer ? <Link to='/register'>Create A New Account</Link>
+                            New Customer ? <Link to={`/register?redirect=${redirect}`}>Create A New Account</Link>
                         </span>
                     </div>
                    </div>

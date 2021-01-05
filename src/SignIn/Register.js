@@ -23,8 +23,6 @@ function Register(props) {
     const Register = useSelector(state=> state.Register);
     const {UserInfo, loading, error}= Register;
 
- 
-
     const OnSubmitHandler=(e)=>{
         e.preventDefault();
         if(Password !== ConfirmPassword){
@@ -43,7 +41,7 @@ function Register(props) {
     return (
         <div className='main-container'>
            <div className='form-container'>
-                   <h2>Register</h2>
+                   <h2>Create Account</h2>
                    <Form onSubmit={OnSubmitHandler}>
                        {loading && (<LoadingBox></LoadingBox>)}
                        {error && (<MessageBox>{error}</MessageBox>)}
@@ -87,7 +85,7 @@ function Register(props) {
 
                     <div className='signin-createnew-container'>
                         <span className='newcustomer-label'>
-                            Already Have An Account ? <Link to='/signin'>Sign In</Link>
+                            Already Have An Account ? <Link to={`/signin?redirect=${redirect}`}>Sign In</Link>
                         </span>
                     </div>
                    </div>
