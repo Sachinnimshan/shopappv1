@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Badge, Dropdown, Button} from 'react-bootstrap';
+import {Badge, Dropdown, Button, ButtonGroup} from 'react-bootstrap';
 import './Header.css';
 import {Link} from 'react-router-dom';
 import {VscThreeBars} from 'react-icons/vsc';
@@ -7,7 +7,8 @@ import {AiOutlineCloseCircle} from 'react-icons/ai';
 import {TopNavData} from './TopNavData';
 import {SidebarData} from './SidebarData';
 import {AiOutlineSearch} from 'react-icons/ai';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
+import { SignOut } from '../Actions/UserActions';
 
 function Header() {
 
@@ -15,10 +16,17 @@ function Header() {
     const ShowSidebar =()=> SetSidebar(!Sidebar);
     const CloseSidebar =()=> SetSidebar(false);
 
+    const dispatch = useDispatch();
+
     const Cart = useSelector(state=> state.Cart);
     const {CartItems}= Cart;
+    
     const UserSign = useSelector(state=> state.UserSign);
     const {UserInfo}= UserSign;
+
+    const SignOutHandler=()=>{
+        dispatch(SignOut());
+    }
 
     return (
         <div>
@@ -42,8 +50,18 @@ function Header() {
                     (<Badge variant='danger'>{CartItems.length}</Badge>)}
                     </span></Link>
 
-                {(UserInfo) ? (<Link className='signin-cart-link-container'>
-                <span className='signin-cart'>{UserInfo.Name}</span></Link>) 
+                {(UserInfo) ? 
+                (<Dropdown as={ButtonGroup}>
+                <Button variant="success">{UserInfo.Name}</Button> 
+                <Dropdown.Toggle split variant="success" id="dropdown-split-basic" />
+                <Dropdown.Menu>
+                <Dropdown.Item><Link className='signin-cart-link-container'>
+                    Profile</Link></Dropdown.Item>
+                <Dropdown.Item onClick={SignOutHandler}>
+                    <Link className='signin-cart-link-container'>
+                        Sign Out</Link></Dropdown.Item>
+                </Dropdown.Menu>
+                </Dropdown>) 
                 :
                 (<Link to='/signin' className='signin-cart-link-container'>
                 <span className='signin-cart'>Sign in</span></Link>)}

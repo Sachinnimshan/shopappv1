@@ -3,29 +3,35 @@ import './Signin.css';
 import {Button, Form} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-import { SignIn } from '../Actions/UserActions';
+import { RegisterUser } from '../Actions/UserActions';
 import LoadingBox from '../Components/LoadingBox';
 import MessageBox from '../Components/MessageBox';
 
 
-function Signin(props) {
+function Register(props) {
 
     const dispatch = useDispatch();
+    const [Name, setName]= useState('');
     const [Email, setemail]= useState('');
     const [Password, setpassword] = useState('');
+    const [ConfirmPassword, setconfirmpassword] = useState('');
 
     const redirect = (props.location.search) ? 
     (props.location.search.split("=")[1])
     : ('/');
 
-    const UserSign = useSelector(state=> state.UserSign);
-    const {UserInfo, loading, error}= UserSign;
+    const Register = useSelector(state=> state.Register);
+    const {UserInfo, loading, error}= Register;
 
  
 
     const OnSubmitHandler=(e)=>{
         e.preventDefault();
-        dispatch(SignIn(Email,Password));
+        if(Password !== ConfirmPassword){
+            alert('Password Does Not Matched');
+        }else{
+            dispatch(RegisterUser(Name, Email, Password)); 
+        }
     }
 
     useEffect(()=>{
@@ -37,19 +43,25 @@ function Signin(props) {
     return (
         <div className='main-container'>
            <div className='form-container'>
-                   <h2>Sign-In</h2>
+                   <h2>Register</h2>
                    <Form onSubmit={OnSubmitHandler}>
                        {loading && (<LoadingBox></LoadingBox>)}
                        {error && (<MessageBox>{error}</MessageBox>)}
+
+                    <Form.Group controlId="formBasicName">
+                    <Form.Label className='form-labels'>Name</Form.Label>
+                    <Form.Control  
+                    type="text" 
+                    placeholder="Enter Name"
+                    id="Name" onChange={(e)=> setName(e.target.value)}/>
+                    </Form.Group>
+                    
                     <Form.Group controlId="formBasicEmail">
                     <Form.Label className='form-labels'>Email</Form.Label>
                     <Form.Control  
                     type="email" 
                     placeholder="Enter email"
                     id="Email" onChange={(e)=> setemail(e.target.value)}/>
-                    <Form.Text className="text-muted">
-                     We'll never share your email with anyone else.
-                    </Form.Text>
                     </Form.Group>
 
                     <Form.Group controlId="formBasicPassword">
@@ -59,17 +71,23 @@ function Signin(props) {
                     placeholder="Password"
                     id="Password" onChange={(e)=>setpassword(e.target.value)} />
                     </Form.Group>
-                    <Form.Group controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
+
+                    <Form.Group controlId="formBasicConfirmPassword">
+                    <Form.Label className='form-labels'>Confirm Password</Form.Label>
+                    <Form.Control 
+                    type="password" 
+                    placeholder="Confirm Password"
+                    id="ConfirmPassword" onChange={(e)=>setconfirmpassword(e.target.value)} />
                     </Form.Group>
+
                     <Button type="submit" className='form-signin-btn'>
-                    Sign In
+                    Register
                     </Button>
                     </Form>
 
                     <div className='signin-createnew-container'>
                         <span className='newcustomer-label'>
-                            New Customer ? <Link to='/register'>Create A New Account</Link>
+                            Already Have An Account ? <Link to='/signin'>Sign In</Link>
                         </span>
                     </div>
                    </div>
@@ -81,4 +99,4 @@ function Signin(props) {
     )
 }
 
-export default Signin;
+export default Register;
