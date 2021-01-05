@@ -1,4 +1,4 @@
-import { USER_SIGNIN_FAIL, USER_SIGNIN_REQUEST, USER_SIGNIN_SUCCESS } from "../Constants/UserConstants";
+import { USER_SIGNIN_FAIL, USER_SIGNIN_REQUEST, USER_SIGNIN_SUCCESS, USER_SIGN_OUT } from "../Constants/UserConstants";
 import Axios from 'axios';
 
 export const SignIn = (Email,Password)=>async(dispatch)=>{
@@ -14,7 +14,11 @@ export const SignIn = (Email,Password)=>async(dispatch)=>{
             (error.response && error.response.data.message ?
             error.response.data.message : error.message)
         })
-
     }
+}
 
+export const SignOut = ()=> (dispatch)=>{
+    localStorage.removeItem('UserInfo');
+    localStorage.removeItem('CartItems');
+    dispatch({type: USER_SIGN_OUT});
 }

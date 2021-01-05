@@ -1,26 +1,40 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './Signin.css';
 import {Button, Form} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import { SignIn } from '../Actions/UserActions';
 
 
-function Signin() {
+function Signin(props) {
 
     const dispatch = useDispatch();
     const [Email, setemail]= useState('');
     const [Password, setpassword] = useState('');
+
+    const redirect = (props.location.search) ? 
+    (props.location.search.split("=")[1])
+    : ('/');
+
+    const UserSign = useSelector(state=> state.UserSign);
+    const {UserInfo}= UserSign;
+
+ 
 
     const OnSubmitHandler=(e)=>{
         e.preventDefault();
         dispatch(SignIn(Email,Password));
     }
 
+    useEffect(()=>{
+        if(UserInfo){
+            props.history.push(redirect);
+        }
+    },[props.history, redirect, UserInfo]);
+
     return (
         <div className='main-container'>
-           
-                   <div className='form-container'>
+           <div className='form-container'>
                    <h2>Sign-In</h2>
                    <Form onSubmit={OnSubmitHandler}>
                     <Form.Group controlId="formBasicEmail">

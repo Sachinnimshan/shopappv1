@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Badge} from 'react-bootstrap';
+import {Badge, Dropdown, Button} from 'react-bootstrap';
 import './Header.css';
 import {Link} from 'react-router-dom';
 import {VscThreeBars} from 'react-icons/vsc';
@@ -42,7 +42,7 @@ function Header() {
                     (<Badge variant='danger'>{CartItems.length}</Badge>)}
                     </span></Link>
 
-                {UserInfo ? (<Link className='signin-cart-link-container'>
+                {(UserInfo) ? (<Link className='signin-cart-link-container'>
                 <span className='signin-cart'>{UserInfo.Name}</span></Link>) 
                 :
                 (<Link to='/signin' className='signin-cart-link-container'>
