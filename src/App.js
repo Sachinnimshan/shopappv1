@@ -7,6 +7,8 @@ import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
 import Footer from './Footer/Footer';
 import Signin from './SignIn/Signin';
 import Register from './SignIn/Register';
+import CheckOutScreen from './CheckOut/CheckOutScreen';
+import Shipping from './Shipping/Shipping';
 
 function App() {
   return (
@@ -19,6 +21,7 @@ function App() {
          <Route path='/cart/:id?' component={CartScreen}/>
          <Route path='/signin' component={Signin}/>
          <Route path='/register' component={Register}/>
+         <Route path='/shipping' component={Shipping}/>
        </Switch>
        <Footer/>
      </Router>

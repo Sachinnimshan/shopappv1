@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+.main-shipping-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.shipping-details-container{
+    width: 600px;
+    margin-top: 1.5rem;
+    border: 2px solid lightgray;
+    padding: 2rem;
+    border-radius: 5px;
+}
+
+.form-labels{
+    text-align: left;
+    font-family: "Roboto";
+    font-weight: bold;
+    width: 100%;
+}
+
+.form-shipping-btn{
+    width: 100%;
+    background-color: #F1C453;
+    border: 1px solid #9C7E31;
+    color: black;
+    font-family: "Roboto";
+    font-size: 16px;
+}
