@@ -7,8 +7,8 @@ import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
 import Footer from './Footer/Footer';
 import Signin from './SignIn/Signin';
 import Register from './SignIn/Register';
-import CheckOutScreen from './CheckOut/CheckOutScreen';
 import Shipping from './Shipping/Shipping';
+import Payments from './Payments/Payments';
 
 function App() {
   return (
@@ -22,6 +22,7 @@ function App() {
          <Route path='/signin' component={Signin}/>
          <Route path='/register' component={Register}/>
          <Route path='/shipping' component={Shipping}/>
+         <Route path='/payments' component={Payments}/>
        </Switch>
        <Footer/>
      </Router>

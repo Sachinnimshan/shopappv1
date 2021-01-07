@@ -1,0 +1,40 @@
+.main-payments-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.payments-container{
+    width: 600px;
+    margin-top: 1.5rem;
+    border: 2px solid lightgray;
+    padding: 2rem;
+    border-radius: 5px;
+}
+
+.payment-method{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+}
+
+.payment-method > div > input{
+    margin: 0.7rem;
+    margin-right: 0.5rem;
+}
+
+.payment-method > div{
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.payments-btn{
+    width: 100%;
+    background-color: #F1C453;
+    border: 1px solid #9C7E31;
+    color: black;
+    font-family: "Roboto";
+    font-size: 16px;
+}
