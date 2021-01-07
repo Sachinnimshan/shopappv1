@@ -17,7 +17,6 @@ function Payments(props) {
     }
 
     const dispatch = useDispatch();
-
     const [PaymentMethod, setPaymentMethod]= useState('');
 
     const OnSubmitHandler=(e)=>{

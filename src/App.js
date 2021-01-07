@@ -9,6 +9,7 @@ import Signin from './SignIn/Signin';
 import Register from './SignIn/Register';
 import Shipping from './Shipping/Shipping';
 import Payments from './Payments/Payments';
+import PlaceOrder from './PlaceOrder/PlaceOrder';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
          <Route path='/register' component={Register}/>
          <Route path='/shipping' component={Shipping}/>
          <Route path='/payments' component={Payments}/>
+         <Route path='/placeorder' component={PlaceOrder}/>
        </Switch>
        <Footer/>
      </Router>

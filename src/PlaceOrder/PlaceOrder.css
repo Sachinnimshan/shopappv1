@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+.main-placeorder-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.placerorder-container{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.placeorder-left{
+    width: 50%;
+    height: auto;
+    padding: 0.5rem 0.5rem;
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin: 1rem;
+    border-radius: 5px;
+}
+
+.placeorder-left > div {
+    margin: 1rem;
+    border: 0.5px solid lightgray;
+    padding: 1rem;
+    background-color: #F7F7F7;
+}
+.placeorder-right{
+    width: 35%;
+    padding: 0.5rem 0.5rem;
+    flex-wrap: wrap;
+    margin: 1rem;
+    border-radius: 5px;
+}
+
+.placeorder-left > div > h4{
+    font-size: 1.2rem;
+    color: #f08000;
+    font-family: 'Roboto';
+    font-weight: bold;
+    text-align: left;
+    margin: 1rem;
+    text-decoration: underline;
+    text-underline-position: under;
+    text-decoration-color: #f08000;
+
+}
+.placeorder-left-shipping > div{
+    text-align: left;
+    margin: 1rem;
+    font-size: 15px;
+    font-family: 'Roboto';
+
+}
+
+.placeorder-left-payments > div{
+    text-align: left;
+    margin: 1rem;
+    font-size: 15px;
+    font-family: 'Roboto';
+}
+
+.placeorder-left-ordered > div {
+    text-align: left;
+    margin: 1rem;
+    font-size: 15px;
+    font-family: 'Roboto';
+}
+
+.place-order-items{
+    display: flex;
+    justify-content: space-between;
+}
+
+.place-order-items > div{
+    margin: 0.5rem;
+}
+
+.place-order-image{
+    width: 4rem;
+}
+
+.placeorder-right{
+    border: 1px solid lightgray;
+    background-color: #F7F7F7;
+    height: 35vh;
+}
+
+.placeorder-right > h4{
+  color: #f08000;
+  margin-bottom: 1.5rem;
+}
+
+.placeorder-right > ul > li{
+    list-style-type: none;
+    text-align: justify;
+    font-family: 'Roboto';
+    font-size: 16px;
+    padding: 5px;
+}
