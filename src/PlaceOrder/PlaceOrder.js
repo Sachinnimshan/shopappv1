@@ -1,7 +1,7 @@
 import React from 'react';
 import CheckOutScreen from '../CheckOut/CheckOutScreen';
 import './PlaceOrder.css';
-import {Card} from 'react-bootstrap';
+import {Button} from 'react-bootstrap';
 import {useSelector} from 'react-redux';
 import formatCurrency from '../Currency';
 import {Link} from 'react-router-dom';
@@ -47,9 +47,13 @@ function PlaceOrder(props) {
                     <h4>Ordered Items</h4>
                     {CartItems.map((item)=>(
                         <div className='place-order-items'>
-                        <div><img className='place-order-image' key={item} src={item.Image}/></div>
-                        <div><Link to={`/product/${item.product}`}>{item.Title}</Link></div>
-                        <div>{item.qty} X {item.Price} = {formatCurrency((item.qty)*(item.Price))}</div>
+                        <div><img className='place-order-image' key={item._id} src={item.Image}/></div>
+                        <div><Link to={`/product/${item.product}`}>
+                            <strong>{item.Title}</strong></Link></div>
+                        <div><strong>
+                        {item.qty} X {formatCurrency(item.Price)} = {formatCurrency((item.qty)*(item.Price))}
+                        </strong>
+                        </div>
                         </div>
                     ))}
                     </div>       
@@ -63,6 +67,7 @@ function PlaceOrder(props) {
                         <li>Taxes : {formatCurrency(Cart.TaxPrice)}</li>
                         <li><strong>Order Total : {formatCurrency(Cart.TotalPrice)}</strong></li>
                     </ul>
+                   <div> <Button className='place-order-btn'>Place Order</Button></div>
                 </div>
 
             </div> 

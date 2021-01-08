@@ -12,7 +12,7 @@
 }
 
 .placeorder-left{
-    width: 50%;
+    width: 40%;
     height: auto;
     padding: 0.5rem 0.5rem;
     display: flex;
@@ -27,14 +27,8 @@
     margin: 1rem;
     border: 0.5px solid lightgray;
     padding: 1rem;
+    width: auto;
     background-color: #F7F7F7;
-}
-.placeorder-right{
-    width: 35%;
-    padding: 0.5rem 0.5rem;
-    flex-wrap: wrap;
-    margin: 1rem;
-    border-radius: 5px;
 }
 
 .placeorder-left > div > h4{
@@ -87,12 +81,18 @@
 .placeorder-right{
     border: 1px solid lightgray;
     background-color: #F7F7F7;
-    height: 35vh;
+    height: auto;
+    justify-content: center;
+    padding: 1.5rem;
+    width: 25%;
+    margin: 1rem;
 }
 
 .placeorder-right > h4{
   color: #f08000;
   margin-bottom: 1.5rem;
+  text-decoration: underline;
+  text-underline-position: under;
 }
 
 .placeorder-right > ul > li{
@@ -101,4 +101,13 @@
     font-family: 'Roboto';
     font-size: 16px;
     padding: 5px;
+}
+
+.place-order-btn{
+    width: 100%;
+    background-color: #F1C453;
+    border: 1px solid #9C7E31;
+    color: black;
+    font-family: "Roboto";
+    font-size: 16px;
 }
