@@ -5,7 +5,7 @@ function MessageBox(props) {
     return (
         <div>
             <Alert variant='danger'>
-            <Alert.Heading>{props.error}</Alert.Heading>
+            <Alert.Heading>{props.children}</Alert.Heading>
             </Alert>
         </div>
     )

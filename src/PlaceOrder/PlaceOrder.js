@@ -1,19 +1,27 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import CheckOutScreen from '../CheckOut/CheckOutScreen';
 import './PlaceOrder.css';
 import {Button} from 'react-bootstrap';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import formatCurrency from '../Currency';
 import {Link} from 'react-router-dom';
+import { CREATE_ORDER_RESET } from '../Constants/PlaceOrderConstants';
+import { CreateOrder } from '../Actions/PlaceOrderActions';
+import LoadingBox from '../Components/LoadingBox';
+import MessageBox from '../Components/MessageBox';
 
 function PlaceOrder(props) {
 
     const Cart = useSelector(state=> state.Cart);
     const {ShippingAddress, PaymentMethod, CartItems} = Cart;
 
-    if(!Cart.PaymentMethod){
+    if(!PaymentMethod){
         props.history.push('/payments');
     }
+
+    const dispatch = useDispatch();
+    const OrderCreate = useSelector(state=> state.OrderCreate);
+    const {loading, success, error, order} = OrderCreate;
 
     const ToPrice = (num)=> Number(num.toFixed(2)); //'5.123'=> '5.12'=> 5.12
     Cart.ItemsPrice = ToPrice(Cart.CartItems.reduce((a,c)=> a + c.qty* c.Price, 0));
@@ -21,7 +29,17 @@ function PlaceOrder(props) {
     Cart.ShippingPrice = ((Cart.ItemsPrice > 100)?(ToPrice(0)):(ToPrice(10)));
     Cart.TaxPrice = ToPrice(0.15*(Cart.ItemsPrice));
     Cart.TotalPrice = (Cart.ItemsPrice + Cart.TaxPrice + Cart.ShippingPrice);
+
+    const PlaceOrderSubmitHandler=()=>{
+        dispatch(CreateOrder({...Cart, OrderItems: Cart.CartItems}));
+    }
     
+    useEffect(()=>{
+        if(success){
+            props.history.push(`/order/${order._id}`);
+            dispatch({type: CREATE_ORDER_RESET});
+        }
+    }, [dispatch, order, props.history, success]);
 
     return (
         <div className='main-placeorder-container'>
@@ -60,6 +78,10 @@ function PlaceOrder(props) {
               </div>
 
                 <div className='placeorder-right'>
+                <div>
+                    {loading && <LoadingBox></LoadingBox>}
+                    {error && <MessageBox>{error}</MessageBox>}
+                </div>
                     <h4>Order Summary</h4>
                     <ul>
                         <li>Items : {formatCurrency(Cart.ItemsPrice)}</li>
@@ -67,8 +89,12 @@ function PlaceOrder(props) {
                         <li>Taxes : {formatCurrency(Cart.TaxPrice)}</li>
                         <li><strong>Order Total : {formatCurrency(Cart.TotalPrice)}</strong></li>
                     </ul>
-                   <div> <Button className='place-order-btn'>Place Order</Button></div>
+                   <div> <Button className='place-order-btn'
+                   onClick={PlaceOrderSubmitHandler}
+                   disabled={Cart.CartItems.length === 0}>Place Order</Button></div>
                 </div>
+
+                
 
             </div> 
         </div>
