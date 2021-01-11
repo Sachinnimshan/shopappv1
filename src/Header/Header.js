@@ -57,8 +57,8 @@ function Header() {
                 <Dropdown.Menu>
                 <Dropdown.Item><Link className='signin-cart-link-container'>
                     Profile</Link></Dropdown.Item>
-                <Dropdown.Item><Link className='signin-cart-link-container'>
-                    Order History</Link></Dropdown.Item>
+                <Dropdown.Item><Link className='signin-cart-link-container'
+                 to='/orderhistory'>Order History</Link></Dropdown.Item>
                 <Dropdown.Item onClick={SignOutHandler}>
                     <Link className='signin-cart-link-container'>
                         Sign Out</Link></Dropdown.Item>

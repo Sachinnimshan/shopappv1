@@ -1,5 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 .main-order-history-container{
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
+}
+
+.order-history-title-container{
+    margin-top: 1.5rem;
+}
+
+.order-history-title-container > span{
+    font-size: 20px;
+    font-family: "Roboto";
+}
+
+.order-history-container{
+    margin-top: 1rem;
+    width: 100%;
+    padding: 1rem 1rem;
 }

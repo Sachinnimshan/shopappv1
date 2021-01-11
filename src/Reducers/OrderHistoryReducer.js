@@ -1,6 +1,6 @@
 import { ORDER_HISTORY_REQUEST, ORDER_HISTORY_SUCCESS, ORDER_HISTORY_FAIL } from "../Constants/PlaceOrderConstants";
 
-export const OrderHistoryReducer =(state={orders: []}, action)=>{
+export const OrderHistoryReducer = (state={orders:[]}, action)=>{
     switch(action.type){
         case ORDER_HISTORY_REQUEST:
             return {loading: true};

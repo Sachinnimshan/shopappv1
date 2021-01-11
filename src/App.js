@@ -11,6 +11,7 @@ import Shipping from './Shipping/Shipping';
 import Payments from './Payments/Payments';
 import PlaceOrder from './PlaceOrder/PlaceOrder';
 import OrderDetailsView from './PlaceOrder/OrderDetailsView';
+import OrderHistory from './PlaceOrder/OrderHistory';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
          <Route path='/payments' component={Payments}/>
          <Route path='/placeorder' component={PlaceOrder}/>
          <Route path='/order/:id' component={OrderDetailsView}/>
+         <Route path='/orderhistory' component={OrderHistory}/>
        </Switch>
        <Footer/>
      </Router>
