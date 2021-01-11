@@ -4,10 +4,12 @@ import './PlaceOrder.css';
 import {useDispatch, useSelector} from 'react-redux';
 import formatCurrency from '../Currency';
 import {Link} from 'react-router-dom';
-import { DetailsOrder } from '../Actions/PlaceOrderActions';
+import { DetailsOrder, PayOrder } from '../Actions/PlaceOrderActions';
 import LoadingBox from '../Components/LoadingBox';
 import MessageBox from '../Components/MessageBox';
 import Axios from 'axios';
+import {PayPalButton} from 'react-paypal-button-v2';
+import { ORDER_PAY_RESET } from '../Constants/PlaceOrderConstants';
 
 function OrderDetailsView(props) {
 
@@ -16,6 +18,10 @@ function OrderDetailsView(props) {
     const {order, loading, error} = OrderDetails;
 
     const [sdkReady, setsdkReady] = useState(false);
+
+    const OrderPay = useSelector((state)=> state.OrderPay);
+    const {loading: loadingpay, 
+        error: errorpay, success: successpay} = OrderPay;
 
     const dispatch = useDispatch();
 
@@ -27,11 +33,13 @@ function OrderDetailsView(props) {
             script.src = `https://www.paypal.com/sdk/js?client-id=${data}`;
             script.async = true;
             script.onload=()=>{
-                setsdkReady(true);
-            },
+            setsdkReady(true);
+            };
             document.body.appendChild(script);
-        },
-        if(!order._id){
+        };
+
+        if(!order || successpay || (order && order._id !== orderId)){
+            dispatch({type: ORDER_PAY_RESET});
             dispatch(DetailsOrder(orderId));
         }else{
             if(!order.IsPaid){
@@ -42,12 +50,12 @@ function OrderDetailsView(props) {
                 }
             }
         }
-     
     }, [dispatch, order,orderId, sdkReady]);
 
-    
 
-    
+    const SuccessPaymentHandler=(PaymentResults)=>{
+        dispatch(PayOrder(order, PaymentResults));
+    }
 
     return (
         (loading)?(<LoadingBox></LoadingBox>):
@@ -95,10 +103,19 @@ function OrderDetailsView(props) {
                         <li>Taxes : {formatCurrency(order.TaxPrice)}</li>
                         <li><strong>Order Total : {formatCurrency(order.TotalPrice)}</strong></li>
                     </ul>
-                    <div>
-                        
-
-                    </div>
+                    
+                    {(!order.IsPaid) && (
+                        <div>
+                            {(!sdkReady) ? (<LoadingBox></LoadingBox>):
+                                (
+                                <>
+                                {errorpay && (<MessageBox>{errorpay}</MessageBox>)}
+                                {loadingpay && (<LoadingBox></LoadingBox>)}
+                                <PayPalButton amount={order.TotalPrice}
+                                onSuccess={SuccessPaymentHandler}></PayPalButton>
+                                </>)}
+                        </div>
+                        )} 
                 </div>
             </div> 
         </div>)
