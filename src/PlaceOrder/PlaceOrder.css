@@ -113,3 +113,12 @@
     font-family: 'Roboto';
     color: #f08000;
 }
+
+.place-order-btn{
+    width: 100%;
+    background-color: #F1C453;
+    border: 1px solid #9C7E31;
+    color: black;
+    font-family: "Roboto";
+    font-size: 16px;
+}

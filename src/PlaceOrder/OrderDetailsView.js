@@ -73,10 +73,16 @@ function OrderDetailsView(props) {
                 <div><strong>City : </strong>{order.ShippingAddress.City}</div>
                 <div><strong>Postal Code : </strong>{order.ShippingAddress.Postalcode}</div>
                 <div><strong>Country : </strong>{order.ShippingAddress.Country}</div>
+                <div>{(order.IsDelivered)?(<MessageBox>Delivered at {order.IsDelivered}</MessageBox>)
+                : (<MessageBox>Not Delivered</MessageBox>)}</div>
                 </div>
 
                 <div className='placeorder-left-payments'><h4>Payments</h4>
                 <div><strong>Method : </strong>{order.PaymentMethod}</div>
+                <div>
+                {(order.IsPaid)?(<MessageBox>Paid at {order.PaidAt}</MessageBox>)
+                : (<MessageBox>Not Paid</MessageBox>)}
+                </div>
                 </div>
 
                 <div className='placeorder-left-ordered'>

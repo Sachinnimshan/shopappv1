@@ -6,6 +6,7 @@ import { CartReducer } from './Reducers/CartReducer';
 import { UserRegisterReducer, UserSignReducer } from './Reducers/UserSignReducer';
 import { OrderCreateReducer } from './Reducers/OrderCreateReducer';
 import { OrderDetailsReducer, OrderPayReducer } from './Reducers/OrderDetailsReducer';
+import { OrderHistoryReducer } from './Reducers/OrderHistoryReducer';
 
 const initialState = {
 
@@ -32,7 +33,8 @@ const initialState = {
     Register: UserRegisterReducer,
     OrderCreate: OrderCreateReducer,
     OrderDetails: OrderDetailsReducer,
-    OrderPay: OrderPayReducer
+    OrderPay: OrderPayReducer,
+    HistoryOrder: OrderHistoryReducer
  });
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
