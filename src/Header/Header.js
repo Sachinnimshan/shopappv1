@@ -55,8 +55,8 @@ function Header() {
                 <Button variant="success">{UserInfo.Name}</Button> 
                 <Dropdown.Toggle split variant="success" id="dropdown-split-basic" />
                 <Dropdown.Menu>
-                <Dropdown.Item><Link className='signin-cart-link-container'>
-                    Profile</Link></Dropdown.Item>
+                <Dropdown.Item><Link className='signin-cart-link-container'
+                to='/userprofile'> Profile</Link></Dropdown.Item>
                 <Dropdown.Item><Link className='signin-cart-link-container'
                  to='/orderhistory'>Order History</Link></Dropdown.Item>
                 <Dropdown.Item onClick={SignOutHandler}>
