@@ -11,7 +11,7 @@
 }
 
 .admin-home-left{
-    width: 15rem;
+    width: 14rem;
     padding: 1rem;
     display: flex;
     flex-direction: column;
@@ -23,7 +23,7 @@
 .admin-home-left-profile-container{
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
 .user-profile{

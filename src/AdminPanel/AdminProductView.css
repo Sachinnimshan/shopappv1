@@ -2,7 +2,13 @@
 
 .admin-product-table > thead > tr > th {
     font-family: 'Roboto';
-    font-size: 14px;
+    font-size: 12px;
     color: dimgray;
-    letter-spacing: 1.2px;
+    letter-spacing: 1.1px;
+}
+
+
+.admin-product-table > tbody > tr > td > img{
+    width: 3rem;
+
 }

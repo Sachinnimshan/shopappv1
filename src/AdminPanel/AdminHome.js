@@ -9,12 +9,13 @@ import {HiOutlineDocumentReport} from 'react-icons/hi';
 import {FcSalesPerformance} from 'react-icons/fc';
 import {VscGift} from 'react-icons/vsc';
 import AdminProductView from './AdminProductView';
+import { ListProducts } from '../Actions/ProductActions';
+import LoadingBox from '../Components/LoadingBox';
+import MessageBox from '../Components/MessageBox';
 
 function AdminHome() {
     const UserSign = useSelector((state)=>state.UserSign);
     const{UserInfo}= UserSign;
-
-    
 
     return (
         <div className='main-admin-home-container'>
@@ -88,7 +89,7 @@ function AdminHome() {
                     </div>
 
                 <div className='admin-home-right-product'>
-                    <AdminProductView/>
+                <AdminProductView/>
                 </div>
 
                 </div>
