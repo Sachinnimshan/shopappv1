@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+.admin-product-table > thead > tr > th {
+    font-family: 'Roboto';
+    font-size: 14px;
+    color: dimgray;
+    letter-spacing: 1.2px;
+}

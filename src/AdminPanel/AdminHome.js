@@ -2,7 +2,6 @@ import React, {useEffect} from 'react';
 import {Card, ButtonGroup, Button} from 'react-bootstrap';
 import './AdminHome.css';
 import {Link} from 'react-router-dom';
-import { ListProducts } from '../Actions/ProductActions';
 import {useSelector, useDispatch} from 'react-redux';
 import {FiUsers} from 'react-icons/fi';
 import{BiUserCircle} from 'react-icons/bi';
@@ -12,9 +11,6 @@ import {VscGift} from 'react-icons/vsc';
 import AdminProductView from './AdminProductView';
 
 function AdminHome() {
-    const dispatch = useDispatch();
-    const ProductList = useSelector((state)=>state.ProductList);
-    const {products,loading,error}= ProductList;
     const UserSign = useSelector((state)=>state.UserSign);
     const{UserInfo}= UserSign;
 
