@@ -14,6 +14,7 @@ import OrderDetailsView from './PlaceOrder/OrderDetailsView';
 import OrderHistory from './PlaceOrder/OrderHistory';
 import UserProfile from './Profile/UserProfile';
 import PrivateRoute from './Profile/PrivateRoute';
+import AdminHome from './AdminPanel/AdminHome';
 
 function App() {
   return (
@@ -32,6 +33,8 @@ function App() {
          <Route path='/order/:id' component={OrderDetailsView}/>
          <Route path='/orderhistory' component={OrderHistory}/>
          <PrivateRoute path='/userprofile' component={UserProfile}/>
+
+         <Route path='/adminhome' component={AdminHome}/>
        </Switch>
        <Footer/>
      </Router>

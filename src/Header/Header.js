@@ -50,7 +50,7 @@ function Header() {
                     (<Badge variant='danger'>{CartItems.length}</Badge>)}
                     </span></Link>
 
-                {(UserInfo) ? 
+                {(UserInfo && (!UserInfo.IsAdmin)) ? 
                 (<Dropdown as={ButtonGroup}>
                 <Button variant="success">{UserInfo.Name}</Button> 
                 <Dropdown.Toggle split variant="success" id="dropdown-split-basic" />
@@ -67,6 +67,21 @@ function Header() {
                 :
                 (<Link to='/signin' className='signin-cart-link-container'>
                 <span className='signin-cart'>Sign in</span></Link>)}
+
+                {(UserInfo && (UserInfo.IsAdmin)) && 
+                (<Dropdown as={ButtonGroup}>
+                    <Button variant="success">{UserInfo.Name}</Button> 
+                    <Dropdown.Toggle split variant="success" id="dropdown-split-basic" />
+                    <Dropdown.Menu>
+                    <Dropdown.Item><Link className='signin-cart-link-container'
+                    to='/userprofile'> Profile</Link></Dropdown.Item>
+                    <Dropdown.Item><Link className='signin-cart-link-container'
+                     to='/adminhome'>Dashboard</Link></Dropdown.Item>
+                    <Dropdown.Item onClick={SignOutHandler}>
+                    <Link className='signin-cart-link-container'>
+                        Sign Out</Link></Dropdown.Item>
+                    </Dropdown.Menu>
+                    </Dropdown>)}
 
             </div>
 
