@@ -15,6 +15,7 @@ import OrderHistory from './PlaceOrder/OrderHistory';
 import UserProfile from './Profile/UserProfile';
 import PrivateRoute from './Profile/PrivateRoute';
 import AdminHome from './AdminPanel/AdminHome';
+import AdminUserView from './AdminPanel/AdminUserView';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
          <PrivateRoute path='/userprofile' component={UserProfile}/>
 
          <Route path='/adminhome' component={AdminHome}/>
+         <Route path='/users' component={AdminUserView}/>
        </Switch>
        <Footer/>
      </Router>

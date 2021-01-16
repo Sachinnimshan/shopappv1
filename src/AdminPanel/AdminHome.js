@@ -9,13 +9,23 @@ import {HiOutlineDocumentReport} from 'react-icons/hi';
 import {FcSalesPerformance} from 'react-icons/fc';
 import {VscGift} from 'react-icons/vsc';
 import AdminProductView from './AdminProductView';
+import AdminUserView from './AdminUserView';
 import { ListProducts } from '../Actions/ProductActions';
 import LoadingBox from '../Components/LoadingBox';
 import MessageBox from '../Components/MessageBox';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 function AdminHome() {
     const UserSign = useSelector((state)=>state.UserSign);
     const{UserInfo}= UserSign;
+
+    const ProductList = useSelector((state)=> state.ProductList);
+    const {loading, error, products} = ProductList;
+    const dispatch = useDispatch();
+
+    useEffect(()=>{
+        dispatch(ListProducts());
+    },[dispatch]);
 
     return (
         <div className='main-admin-home-container'>
@@ -32,7 +42,7 @@ function AdminHome() {
                     </div>
                 <ul>
                     <li><Link className='side-bar-links'>PRODUCTS</Link></li>
-                    <li><Link className='side-bar-links'>USERS</Link></li>
+                    <li><Link to='/users' className='side-bar-links'>USERS</Link></li>
                     <li><Link className='side-bar-links'>ORDERS</Link></li>
                     <li><Link className='side-bar-links'>SALES</Link></li>
                 </ul>
@@ -89,18 +99,13 @@ function AdminHome() {
                     </div>
 
                 <div className='admin-home-right-product'>
-                <AdminProductView/>
+                  <AdminProductView/>
                 </div>
-
-                </div>
-
-                
-            
-            </div>
-
-
-            
         </div>
+
+      </div>    
+
+    </div>
     )
 }
 
