@@ -14,6 +14,7 @@ import { ListProducts } from '../Actions/ProductActions';
 import LoadingBox from '../Components/LoadingBox';
 import MessageBox from '../Components/MessageBox';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import AdminDashBoard from './AdminDashBoard';
 
 function AdminHome() {
     const UserSign = useSelector((state)=>state.UserSign);
@@ -29,83 +30,9 @@ function AdminHome() {
 
     return (
         <div className='main-admin-home-container'>
-            <div className='admin-home-container'>
-                <div className='admin-home-left'>
-                    <div className='admin-home-left-profile-container'>
-                        <div><BiUserCircle className='user-profile'/></div>
-                        <div className='admin-home-left-profile'>
-                            <ul>
-                                <li><span>{UserInfo.Name}</span></li>
-                                <li>Admin</li>
-                            </ul>
-                        </div>
-                    </div>
-                <ul>
-                    <li><Link className='side-bar-links'>PRODUCTS</Link></li>
-                    <li><Link to='/users' className='side-bar-links'>USERS</Link></li>
-                    <li><Link className='side-bar-links'>ORDERS</Link></li>
-                    <li><Link className='side-bar-links'>SALES</Link></li>
-                </ul>
-                </div>
-                <div className='admin-home-right'>
-                    <div className='admin-home-right-top'>
-                        <div >
-                            <Card className='admin-home-right-top-card'>
-                                <Card.Body>
-                                    <VscGift className='card-icons'/>
-                                    <Card.Title className='card-title'>Products</Card.Title>
-                                    <span>
-                                        <h3></h3>
-                                    </span>
-                                </Card.Body>
-                            </Card>
+            <AdminDashBoard/>
+        </div>    
 
-                        </div>
-                        <div >
-                        <Card className='admin-home-right-top-card'>
-                                <Card.Body>
-                                <FiUsers className='card-icons'/>
-                                    <Card.Title className='card-title'>USERS</Card.Title>
-                                    <span>
-                                        <h3></h3>
-                                    </span>
-                                </Card.Body>
-                            </Card>
-
-                        </div>
-                        <div>
-                        <Card className='admin-home-right-top-card'>
-                                <Card.Body>
-                                <HiOutlineDocumentReport className='card-icons'/>
-                                    <Card.Title className='card-title'>ORDERS</Card.Title>
-                                    <span>
-                                        <h3></h3>
-                                    </span>
-                                </Card.Body>
-                            </Card>
-                        </div>
-
-                        <div>
-                        <Card className='admin-home-right-top-card'>
-                                <Card.Body>
-                                <FcSalesPerformance className='card-icons'/>
-                                    <Card.Title className='card-title'>SALES</Card.Title>
-                                    <span>
-                                        <h3></h3>
-                                    </span>
-                                </Card.Body>
-                            </Card>
-                        </div>
-                    </div>
-
-                <div className='admin-home-right-product'>
-                  <AdminProductView/>
-                </div>
-        </div>
-
-      </div>    
-
-    </div>
     )
 }
 

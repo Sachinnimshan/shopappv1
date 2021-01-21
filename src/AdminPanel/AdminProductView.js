@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {Button,Table} from 'react-bootstrap';
+import {Button,Table,Badge} from 'react-bootstrap';
 import './AdminProductView.css';
 import LoadingBox from '../Components/LoadingBox';
 import MessageBox from '../Components/MessageBox';
@@ -16,8 +16,12 @@ function AdminProductView() {
     },[dispatch]);
     
     return (
+        <div className='main-admin-product-container'>
+                <div className='main-admin-product-top-container'>
+                <div><Badge variant='info'><span>LIST OF PRODUCTS</span></Badge></div>
+                <div><Button variant='success'>Create New Product</Button></div>
+                </div>
             <div className='admin-product-table-container'>
-                <div><span>LIST OF PRODUCTS</span></div>
                  {(loading)? (<LoadingBox></LoadingBox>):
                 (error)? (<MessageBox>{error}</MessageBox>):
             (<div>
@@ -52,6 +56,7 @@ function AdminProductView() {
                </div>)}
 
             </div>
+    </div>
     )
 }
 

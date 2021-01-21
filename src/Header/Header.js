@@ -77,6 +77,10 @@ function Header() {
                     to='/userprofile'> Profile</Link></Dropdown.Item>
                     <Dropdown.Item><Link className='signin-cart-link-container'
                      to='/adminhome'>Dashboard</Link></Dropdown.Item>
+                    <Dropdown.Item><Link className='signin-cart-link-container'
+                     to='/products'>Products</Link></Dropdown.Item>
+                    <Dropdown.Item><Link className='signin-cart-link-container'
+                     to='/users'>Users</Link></Dropdown.Item>
                     <Dropdown.Item onClick={SignOutHandler}>
                     <Link className='signin-cart-link-container'>
                         Sign Out</Link></Dropdown.Item>

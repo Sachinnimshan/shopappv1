@@ -1,49 +1,45 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
 
-.main-admin-product-container{
+.main-admin-user-container{
     display: flex;
     justify-content: center;
     flex-direction: column;
 }
 
-.main-admin-product-top-container{
+.main-admin-user-top-container{
     display: flex;
     margin: 1rem 1rem;
     justify-content: space-between;
 }
 
-.main-admin-product-top-container > div > span{
+.main-admin-user-top-container > div > span{
     font-size: 1.5rem;
     color: white;
     letter-spacing: 5px;
     font-family: 'Oswald', sans-serif;
 }
-.admin-product-table-container{
+.admin-user-table-container{
     overflow-y: scroll;
     height: 25rem;
     margin: 1rem 1rem;
     cursor: pointer;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-     0 6px 20px 0 rgba(0, 0, 0, 0.3);
+     0 6px 20px 0 rgba(0, 0, 0, 0.3);;
 }
 
-.admin-product-table-container > div{
+.admin-user-table-container > div{
     margin: 1rem;
 }
 
-.admin-product-table-container > div >span{
+.admin-user-table-container > div >span{
     font-size: 1.5rem;
     font-family: 'Roboto';
     color: dimgrey;
 }
-.admin-product-view-table > thead > tr > th {
+.admin-user-view-table > thead > tr > th {
     font-family: 'Roboto';
     font-size: 14px;
     color: dimgray;
     letter-spacing: 1.1px;
-}
-
-.admin-product-view-table > tbody > tr > td > img{
-    width: 5rem;
 }
