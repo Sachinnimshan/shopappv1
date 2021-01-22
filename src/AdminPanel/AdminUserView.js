@@ -6,7 +6,7 @@ import LoadingBox from '../Components/LoadingBox';
 import MessageBox from '../Components/MessageBox';
 import { AllUserDetails } from '../Actions/AdminActions';
 
-function AdminUserView() {
+function AdminUserView(props) {
 
     const dispatch = useDispatch();
     const UserDetailsAll = useSelector((state)=>state.UserDetailsAll);
@@ -16,12 +16,17 @@ function AdminUserView() {
         dispatch(AllUserDetails());
     },[dispatch]);
     
+
+    const CreateNewUserHandler =()=>{
+        props.history.push('/createuser');
+    }
     
     return (
             <div className='main-admin-user-container'>
                 <div className='main-admin-user-top-container'>
                 <div><Badge variant='info'><span>LIST OF USERS</span></Badge></div>
-                <div><Button variant='success'>Create New User</Button></div>
+                <div><Button variant='success' onClick={CreateNewUserHandler}>
+                    Create New User</Button></div>
                 </div>
                 <div className='admin-user-table-container'>
                 
@@ -48,8 +53,6 @@ function AdminUserView() {
                                    <td><Button variant='danger'>DELETE</Button></td>
                                </tr>
                            ))}
-                           
-                           
                        </tbody>
                    </Table>
                </div>)}

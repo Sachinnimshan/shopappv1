@@ -134,11 +134,11 @@
 .nav-menu{
         display: flex;
         flex-direction: column;
-        width: 25%;
+        width: 30%;
         height: 100vh;
         position: fixed;
         left: -100%;
-        transition: all 0.3s ease-out;  
+        transition: all 0.3s ease-out;
 }
 
 .nav-menu.active{
@@ -151,22 +151,31 @@
     overflow-y: scroll;
 }
 
+.sidebar-profile-container{
+    position: fixed;
+    height: 2rem;
+    width: 20%;
+    margin: 2rem;
+    background-color: #232F3E;
+}
+
 .nav-item{
     padding: 15px;
     list-style-type: none;
 }
 
 .nav-item:hover{
-    background-color: lightgrey;
+    background-color: #EAEDED;
     cursor: pointer;
 }
 .side-nav-links{
     font-size: 15px;
     font-family: 'Roboto';
-    color: #717171;
+    color: #232F3E;
 }
 
 .side-nav-links:hover{
     text-decoration: none;
+    color: #232F3E;
 }
 

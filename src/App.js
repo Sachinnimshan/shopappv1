@@ -17,6 +17,7 @@ import PrivateRoute from './Profile/PrivateRoute';
 import AdminHome from './AdminPanel/AdminHome';
 import AdminProductView from './AdminPanel/AdminProductView';
 import AdminUserView from './AdminPanel/AdminUserView';
+import CreateUser from './AdminPanel/CreateUser';
 
 function App() {
   return (
@@ -36,9 +37,10 @@ function App() {
          <Route path='/orderhistory' component={OrderHistory}/>
          <PrivateRoute path='/userprofile' component={UserProfile}/>
 
-         <Route path='/adminhome' component={AdminHome}/>
-         <Route path='/products' component={AdminProductView}/>
-         <Route path='/users' component={AdminUserView}/>
+         <PrivateRoute path='/adminhome' component={AdminHome}/>
+         <PrivateRoute path='/products' component={AdminProductView}/>
+         <PrivateRoute path='/users' component={AdminUserView}/>
+         <PrivateRoute path='/createuser' component={CreateUser}/>
        </Switch>
        <Footer/>
      </Router>

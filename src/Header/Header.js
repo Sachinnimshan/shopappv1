@@ -103,10 +103,8 @@ function Header() {
                             <Link to={sidedata.Path} className={sidedata.CName}>
                                 {sidedata.Title}</Link>
                              </li>
-
                             );
                         })}
-
                     </ul>
                 </div>
 

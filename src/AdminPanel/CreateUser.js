@@ -1,6 +1,6 @@
 import React from 'react';
 
-function CreateProduct() {
+function CreateUser() {
     return (
         <div>
            <h1>Sachin Nimshan</h1> 
@@ -8,4 +8,4 @@ function CreateProduct() {
     )
 }
 
-export default CreateProduct;
+export default CreateUser;
