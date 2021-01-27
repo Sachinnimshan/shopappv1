@@ -1,5 +1,7 @@
+import React ,{useState} from 'react';
 import './App.css';
 import Header from './Header/Header';
+import Menu from './Header/Menu';
 import HomeScreen from './Products/HomeScreen';
 import ProductScreen from './Products/ProductScreen';
 import CartScreen from './Cart/CartScreen';
@@ -19,11 +21,17 @@ import AdminProductView from './AdminPanel/AdminProductView';
 import AdminUserView from './AdminPanel/AdminUserView';
 import CreateUser from './AdminPanel/CreateUser';
 
+
 function App() {
+
+  const [sidebar, setsidebar] = useState(false);
+  const closesidebar=()=> setsidebar(false);
+
   return (
     <div className="App">
      <Router>
-       <Header/>
+       <Header sidebar = {sidebar} setsidebar = {setsidebar}/>
+       {sidebar && <Menu closesidebar={closesidebar}/>}
        <Switch>
          <Route exact path='/' component={HomeScreen}/>
          <Route path="/product/:id" component={ProductScreen}/>

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React,{useState} from 'react';
 import {Badge, Dropdown, Button, ButtonGroup} from 'react-bootstrap';
 import './Header.css';
 import {Link} from 'react-router-dom';
@@ -10,11 +10,9 @@ import {AiOutlineSearch} from 'react-icons/ai';
 import {useSelector, useDispatch} from 'react-redux';
 import { SignOut } from '../Actions/UserActions';
 
-function Header() {
+function Header({sidebar, setsidebar}) {
 
-    const [Sidebar, SetSidebar] = useState(false);
-    const ShowSidebar =()=> SetSidebar(!Sidebar);
-    const CloseSidebar =()=> SetSidebar(false);
+    const showsidebar = ()=> setsidebar(!sidebar);
 
     const dispatch = useDispatch();
 
@@ -91,21 +89,9 @@ function Header() {
 
             </div>
             <div className='second-header-container'>
-                <div className='menu-bar-container' onClick={ShowSidebar}>
-               {Sidebar ?  <AiOutlineCloseCircle className='menu-bar'/> :
+                <div className='menu-bar-container' onClick={showsidebar}>
+               {sidebar ?  <AiOutlineCloseCircle className='menu-bar'/> :
                 <VscThreeBars className='menu-bar'/>}
-                </div>
-                <div>
-                    <ul className={Sidebar ? 'nav-menu active': 'nav-menu'}>
-                        {SidebarData.map((sidedata, index)=>{
-                            return(
-                        <li key={index} className='nav-item' onClick={CloseSidebar}>
-                            <Link to={sidedata.Path} className={sidedata.CName}>
-                                {sidedata.Title}</Link>
-                             </li>
-                            );
-                        })}
-                    </ul>
                 </div>
 
             <div className='top-nav-data-container'>
